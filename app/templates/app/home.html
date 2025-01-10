@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Welcome Section with Image -->
+    <div class="text-center mb-5">
+        <img src="{% static 'images/welcome-image.jpg' %}" class="img-fluid rounded shadow mb-4" alt="Welcome Image" style="max-width: 100%; height: auto;">
+        <h1 class="display-4 text-primary">Welcome, {{ user.username }}</h1>
+        <p class="lead text-muted">Here's your platform overview.</p>
+    </div>
+
+    <!-- Platform Statistics Section -->
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Platform Statistics</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <strong>Total Users:</strong>
+                            <span>{{ stats.total_users }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <strong>Active Users:</strong>
+                            <span>{{ stats.active_users }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <strong>Active User Percentage:</strong>
+                            <span>{{ stats.active_user_percentage|floatformat:2 }}%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Activity Progress Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm border-info">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">User Activity Overview</h5>
+                </div>
+                <div class="card-body">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ stats.active_user_percentage }}%;" aria-valuenow="{{ stats.active_user_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                            {{ stats.active_user_percentage|floatformat:2 }}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Registered Users Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Latest Registered Users</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for latest_user in stats.latest_users %}
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>{{ latest_user.username }}</span>
+                                <small class="text-muted">Joined on {{ latest_user.date_joined }}</small>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item text-muted">No recent users.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

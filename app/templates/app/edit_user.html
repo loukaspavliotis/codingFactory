@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>Edit User</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.username.label_tag }} {{ form.username }}
+    {{ form.email.label_tag }} {{ form.email }}
+    <div>
+        <label for="id_is_active">Active:</label>
+        {{ form.is_active }}
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% endblock %}
