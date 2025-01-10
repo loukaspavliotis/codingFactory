@@ -1,3 +1,9 @@
 db.sqlite3
 frontend
 myenv
+*.pyc
+__pycache__/
+
+
+# Ignore migration cache files
+app/migrations/__pycache__/
