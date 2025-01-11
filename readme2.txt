@@ -1,17 +1,20 @@
-GIT CLONE:
+
+HOW TO RUN :
+1 .GIT CLONE:
 git clone https://github.com/loukaspavliotis/codingFactory.git
 cd codingFactory
 
-
-Create New Env: python -m venv myenv
-ACTIVATE new env
+2.
+Create New Env:
+ python -m venv myenv
+Activate new Env:
  .\myenv\Scripts\activate    
 
+3. Run
 pip install -r requirements.txt
-
-THA DWSW K TI VASI MAZI (I NA VRW ALLO TROPO)
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
-
 
 DESCRIPTION kai ti kanei:
 
