@@ -44,11 +44,13 @@ from django.shortcuts import render
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
 
+
 @login_required
 def manage_users(request):
     # Use UserDAO to get all users
     users = UserDAO.get_all_users()
     return render(request, 'app/manage_users.html', {'users': users})
+
 
 @login_required
 def delete_user(request, user_id):
@@ -60,6 +62,7 @@ def delete_user(request, user_id):
         messages.success(request, 'User deleted successfully.')
         return redirect('manage_users')
     return render(request, 'app/confirm_delete.html', {'user': user})
+
 
 @login_required
 def edit_user(request, user_id):
@@ -151,10 +154,6 @@ def user_login(request):
 
 
 from django.shortcuts import get_object_or_404
-
-
-
-
 
 
 def user_logout(request):
