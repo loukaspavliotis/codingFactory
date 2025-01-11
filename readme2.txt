@@ -9,9 +9,11 @@ ACTIVATE new env
 
 pip install -r requirements.txt
 
-python manage.py makemigrations
-python manage.py migrate
+THA DWSW K TI VASI MAZI (I NA VRW ALLO TROPO)
 python manage.py runserver
 
 
-DESCRIPTION:
+DESCRIPTION kai ti kanei:
+
+
+na katalavw ti xreiazetai na bgalw kai ti na valw
