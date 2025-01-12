@@ -59,12 +59,6 @@ git clone https://github.com/loukaspavliotis/codingFactory.git
 cd codingFactory
 ```
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/loukaspavliotis/codingFactory.git
-cd codingFactory
-```
-
 ### 2.Create New Env 
 ```bash
 python -m venv myenv
