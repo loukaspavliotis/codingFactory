@@ -13,11 +13,13 @@ def platform_stats(request):
     total_users = UserDAO.get_total_users()
     active_users = UserDAO.get_active_users()
     latest_users = ProfileDAO.get_latest_users()
+    active_user_percentage = (active_users / total_users) * 100 if total_users > 0 else 0
 
     stats_dto = PlatformStatsDTO(
         total_users=total_users,
         active_users=active_users,
-        latest_users=latest_users
+        latest_users=latest_users,
+        active_user_percentage = active_user_percentage 
     )
 
     serializer = PlatformStatsDTOSerializer(stats_dto)
